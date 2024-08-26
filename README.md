@@ -59,7 +59,7 @@ vim ./spring-backend/src/main/resources/application.properties
 ```
 # Docker Build command fire for create Docker Images.(Note :- Dockerfile should present in same dir where all file of backend is present)
 ```
-docker build -t soham08022001/angular:backend .
+docker build -t sohampatil08/angular:backend .
 ```
 ```
 docker images
@@ -74,7 +74,7 @@ vim ./angular-frontend/src/app/services/worker.service.ts
 # Important:- 
 1. In the Case of K8s,We mention our Backend service name in yaml file that name must mention in our Frontend image at the place of localhost then create image & push it on DockerHub
 ```
-docker build -t soham08022001/angular:frontend .
+docker build -t sohampatil08/angular:frontend .
 ```
 ```
 docker images
@@ -92,8 +92,8 @@ docker login
 ```
 # Push docker images on DockerHub (Note :- Your repository should be present on your DockerHub)
 ```
-docker push soham08022001/angular:frontend
-docker push soham08022001/angular:backend
+docker push sohampatil08/angular:frontend
+docker push sohampatil08/angular:backend
 ```
 # We have to write YAML file K8s Deployment.
 
@@ -109,12 +109,12 @@ metadata:
 spec:
   containers:
   - name: angular-frontend
-    image: soham08022001/angular:frontend
+    image: sohampatil08/angular:frontend
     ports:
     - containerPort: 80
       protocol: TCP
   - name: angular-backend
-    image: soham08022001/angular:backend
+    image: sohampatil08/angular:backend
     ports:
     - containerPort: 8080
       protocol: TCP
